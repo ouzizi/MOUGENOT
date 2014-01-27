@@ -62,7 +62,7 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://www.statistiques.fr#MAYENNE">
     <rdf:type rdf:resource="http://www.statistiques.fr#departement"/>
-    <statistiques:pop></statistiques:pop>
+    <statistiques:pop>309 168</statistiques:pop>
     <statistiques:code>53</statistiques:code>
     <j.0:name>MAYENNE</j.0:name>
   </rdf:Description>

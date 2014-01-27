@@ -3,6 +3,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.neo4j.graphdb.Direction;
 import org.neo4j.graphdb.GraphDatabaseService;
@@ -11,12 +12,18 @@ import org.neo4j.graphdb.Path;
 import org.neo4j.graphdb.Relationship;
 import org.neo4j.graphdb.RelationshipType;
 import org.neo4j.graphdb.Transaction;
+import org.neo4j.graphdb.factory.Description;
 import org.neo4j.graphdb.factory.GraphDatabaseFactory;
 import org.neo4j.graphdb.traversal.Evaluators;
 import org.neo4j.graphdb.traversal.TraversalDescription;
 import org.neo4j.graphdb.traversal.Traverser;
 import org.neo4j.graphdb.traversal.Uniqueness;
 import org.neo4j.kernel.Traversal;
+import org.neo4j.server.plugins.Name;
+import org.neo4j.server.plugins.PluginTarget;
+import org.neo4j.server.plugins.ServerPlugin;
+import org.neo4j.server.plugins.Source;
+import org.neo4j.tooling.GlobalGraphOperations;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -27,6 +34,7 @@ import com.hp.hpl.jena.vocabulary.DC;
 import com.hp.hpl.jena.vocabulary.RDF;
 public class France {
 	
+	
 	private static enum RelTypes implements RelationshipType
 	{
 	    DEPARTEMENT, VOISIN, REGION, EST
@@ -36,10 +44,9 @@ public class France {
 	private long popNodeId=0;
 	private long popNodeIddep=0;
 	private static final String neo4j_DBPath="/usr/local/neo4j-community-2.0.0";
-	//public GraphDatabaseService graphdbservice;
-	public GraphDatabaseService graphdbservice;
+	public static GraphDatabaseService graphdbservice;
 	
-	
+
 	public void createNodeSpace()
 	{
 		graphdbservice = new GraphDatabaseFactory().newEmbeddedDatabase(neo4j_DBPath);
@@ -51,7 +58,7 @@ public class France {
 		popNodeId = France.getId();
 		
 		Node pays = graphdbservice.createNode(); // création du 2éme point 
-		//matrixNodeId = psg.getId();
+	
 		pays.setProperty("name", "pays"); 
 		France.createRelationshipTo(pays, RelTypes.EST);
 		
@@ -87,7 +94,9 @@ public class France {
 		pyrennesorientales.setProperty("code", "66");
 		pyrennesorientales.setProperty("pop", "459 798");
 		aude.createRelationshipTo(pyrennesorientales, RelTypes.VOISIN);
+		
 		/////////////////////////////////////////////////////////////////////////////////////////////
+		
 		Node paysdelaloire = graphdbservice.createNode(); // création de la branche région 52
 		paysdelaloire.setProperty("name", "PAYS DE LA LOIRE"); 
 		paysdelaloire.setProperty("code", "52"); 
@@ -112,7 +121,7 @@ public class France {
 		Node mayenne = graphdbservice.createNode();
 		mayenne.setProperty("name", "MAYENNE");
 		mayenne.setProperty("code", "53");
-		mayenne.setProperty("pop", "");
+		mayenne.setProperty("pop", "309 168");
 		sarthe.createRelationshipTo(mayenne, RelTypes.VOISIN);
 		
 		Node loireatlantique = graphdbservice.createNode();
@@ -122,6 +131,7 @@ public class France {
 		mayenne.createRelationshipTo(loireatlantique, RelTypes.VOISIN);
 	
 	//////////////////////////////////////////////////////////////////////////////////////////
+		
 		Node aquitaine = graphdbservice.createNode(); // création d'une autre région
 		aquitaine.setProperty("name", "AQUITAINE");
 		aquitaine.setProperty("code", "72");
@@ -136,6 +146,7 @@ public class France {
 		lotetgaronne.setProperty("code", "47");
 		lotetgaronne.setProperty("pop", "333 569"); 
 		gironde.createRelationshipTo(lotetgaronne, RelTypes.VOISIN);
+		
 		Node pyreneesatlantiques = graphdbservice.createNode(); // création d'un autre noeud
 		pyreneesatlantiques.setProperty("name", "PYRENEES-ATLANTIQUES"); 
 		pyreneesatlantiques.setProperty("code", "64"); 
@@ -153,9 +164,11 @@ public class France {
 		landes.createRelationshipTo(dordogne, RelTypes.VOISIN);
 		pays.createRelationshipTo(LanguedocRoussillon, RelTypes.REGION);
 		pays.createRelationshipTo(paysdelaloire, RelTypes.REGION);
-		pays.createRelationshipTo(aquitaine, RelTypes.REGION);		
+		pays.createRelationshipTo(aquitaine, RelTypes.REGION);	
+		
 		//////////////////////////////////////////////////////////////////////////
-		tx.success(); // on commit les changements
+		
+		tx.success(); // 
 	}
 	 catch(Exception e){
 		System.out.println(e.getMessage());
@@ -163,7 +176,7 @@ public class France {
 	}
 	}
 	
-    // START SNIPPET: shutdownHook
+    
 	private Node getFirstNode() {
 		return graphdbservice.getNodeById(popNodeId)
 		.getSingleRelationship( RelTypes.EST, Direction.OUTGOING)
@@ -180,6 +193,7 @@ public class France {
 		}
 	
 //////////////////////////////////////////////////
+	
 	public void printNeoVoisins(Model m) {
 		String stat ="http://www.statistiques.fr#";
 		m.setNsPrefix("statistiques", stat);
@@ -195,11 +209,11 @@ public class France {
 		Node contient;
 		String output = firstNode.getProperty("name") + "voisins :" +
 		System.getProperty("line.separator");
-		Traverser voisinsTraverser = getVoisins(firstNode); // noeuds parcourus
+		Traverser voisinsTraverser = getVoisins(firstNode); // noeuds traverses
 		int nbOfFriends = 0; // compteur de voisins
 		for (Path voisinPath : voisinsTraverser) {
 			
-			output = "At depth " + voisinPath.length() + " => "
+			output = "Région " + voisinPath.length() + " => "
 					+voisinPath.endNode().getProperty( "name" ) +
 					System.getProperty("line.separator");
 			System.out.println(output);
@@ -221,7 +235,7 @@ public class France {
 			try {       
 				FileOutputStream outStream = new FileOutputStream("statistiques.rdf");
 			
-				//exporte le resultat dans un fichier
+				//exporte  dans un fichier
 				m.write(outStream, "RDF/XML");
 				outStream.close();
 			}
@@ -245,7 +259,7 @@ public class France {
 		Node firstNode = getFirstNodeAppartenant(i);
 		Node appartenant;
 		
-		String output = firstNode.getProperty("name") + "voisins :" +
+		String output = firstNode.getProperty("name") + "  voisins :" +
 		System.getProperty("line.separator");
 		Resource dep = m.createResource(stat+firstNode.getProperty("name"));
 		dep.addProperty(FOAF.name, firstNode.getProperty("name").toString());
@@ -253,11 +267,11 @@ public class France {
 		dep.addProperty(pop , firstNode.getProperty("pop").toString());
 		m.add(r,departements,dep);
 		m.add(dep,RDF.type,departement);
-		Traverser voisinsTraverser = getVoisinsappartenant(firstNode); // noeuds parcourus
-		int nbOfFriends = 0; // compteur damis
+		Traverser voisinsTraverser = getVoisinsappartenant(firstNode); // noeuds traverses
+		int nbOfFriends = 0; // compteur de voisins
 		for (Path voisinPath : voisinsTraverser) {	
 		
-		output += "At depth " + voisinPath.length() + " => "
+		output += "Département " + voisinPath.length() + " => "
 		+ voisinPath.endNode().getProperty( "name" ) +
 		System.getProperty("line.separator");
 		
@@ -292,8 +306,22 @@ private static Traverser getVoisinsappartenant(Node firstNode) {
 	}
 	
 //////////////////////////////////////////////////////////////////////////////////
-
-
+public static void main(String[] args) {
 	
+	//GetAll noeuds = new GetAll();
+
+	//noeuds.getAllNodes(graphdbservice);
+		
+	France gr = new France();
+	gr.getVoisinsappartenant(null);
 	
 }
+
+
+
+
+}
+
+////////////////////////////////////	
+	
+
