@@ -1,34 +1,29 @@
 <rdf:RDF
     xmlns:statistiques="http://www.statistiques.fr#"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:j.0="http://xmlns.com/foaf/0.1/"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:dc="http://purl.org/dc/elements/1.1/"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" > 
-  <rdf:Description rdf:about="http://www.statistiques.fr#GIRONDE">
-    <rdf:type rdf:resource="http://www.statistiques.fr#departement"/>
-    <statistiques:pop>1 491 170</statistiques:pop>
-    <statistiques:code>33</statistiques:code>
-    <j.0:name>GIRONDE</j.0:name>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.statistiques.fr#PYRENEES-ORIENTALES">
+  <rdf:Description rdf:about="http://www.statistiques.fr#66">
     <rdf:type rdf:resource="http://www.statistiques.fr#departement"/>
     <statistiques:pop>459 798</statistiques:pop>
-    <statistiques:code>66</statistiques:code>
-    <j.0:name>PYRENEES-ORIENTALES</j.0:name>
+    <statistiques:name>PYRENEES-ORIENTALES</statistiques:name>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.statistiques.fr#AUDE">
+  <rdf:Description rdf:about="http://www.statistiques.fr#24">
+    <rdf:type rdf:resource="http://www.statistiques.fr#departement"/>
+    <statistiques:pop>20</statistiques:pop>
+    <statistiques:name>DORDOGNE</statistiques:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.statistiques.fr#85">
+    <rdf:type rdf:resource="http://www.statistiques.fr#departement"/>
+    <statistiques:pop>657 326</statistiques:pop>
+    <statistiques:name>VENDEE</statistiques:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.statistiques.fr#11">
     <rdf:type rdf:resource="http://www.statistiques.fr#departement"/>
     <statistiques:pop>366 604</statistiques:pop>
-    <statistiques:code>11</statistiques:code>
-    <j.0:name>AUDE</j.0:name>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.statistiques.fr#HERAULT">
-    <rdf:type rdf:resource="http://www.statistiques.fr#departement"/>
-    <statistiques:pop>1 090 052</statistiques:pop>
-    <statistiques:code>34</statistiques:code>
-    <j.0:name>HERAULT</j.0:name>
+    <statistiques:name>AUDE</statistiques:name>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.statistiques.fr#pays">
     <statistiques:caracterisepar rdf:resource="http://www.statistiques.fr#AQUITAINE"/>
@@ -36,96 +31,85 @@
     <statistiques:caracterisepar rdf:resource="http://www.statistiques.fr#LANGUEDOC-ROUSSILLON"/>
     <rdf:type rdf:resource="http://www.statistiques.fr#pays"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.statistiques.fr#LANDES">
+  <rdf:Description rdf:about="http://www.statistiques.fr#40">
     <rdf:type rdf:resource="http://www.statistiques.fr#departement"/>
     <statistiques:pop>19</statistiques:pop>
-    <statistiques:code>40</statistiques:code>
-    <j.0:name>LANDES</j.0:name>
+    <statistiques:name>LANDES</statistiques:name>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.statistiques.fr#VENDEE">
-    <rdf:type rdf:resource="http://www.statistiques.fr#departement"/>
-    <statistiques:pop>657 326</statistiques:pop>
-    <statistiques:code>85</statistiques:code>
-    <j.0:name>VENDEE</j.0:name>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.statistiques.fr#DORDOGNE">
-    <rdf:type rdf:resource="http://www.statistiques.fr#departement"/>
-    <statistiques:pop>20</statistiques:pop>
-    <statistiques:code>24</statistiques:code>
-    <j.0:name>DORDOGNE</j.0:name>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.statistiques.fr#LOT-ET-GARONNE">
-    <rdf:type rdf:resource="http://www.statistiques.fr#departement"/>
-    <statistiques:pop>333 569</statistiques:pop>
-    <statistiques:code>47</statistiques:code>
-    <j.0:name>LOT-ET-GARONNE</j.0:name>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.statistiques.fr#MAYENNE">
+  <rdf:Description rdf:about="http://www.statistiques.fr#53">
     <rdf:type rdf:resource="http://www.statistiques.fr#departement"/>
     <statistiques:pop>309 168</statistiques:pop>
-    <statistiques:code>53</statistiques:code>
-    <j.0:name>MAYENNE</j.0:name>
+    <statistiques:name>MAYENNE</statistiques:name>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.statistiques.fr#LOZERE">
+  <rdf:Description rdf:about="http://www.statistiques.fr#49">
+    <rdf:type rdf:resource="http://www.statistiques.fr#departement"/>
+    <statistiques:pop>800 424</statistiques:pop>
+    <statistiques:name>MAINE-ET-LOIRE</statistiques:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.statistiques.fr#47">
+    <rdf:type rdf:resource="http://www.statistiques.fr#departement"/>
+    <statistiques:pop>333 569</statistiques:pop>
+    <statistiques:name>LOT-ET-GARONNE</statistiques:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.statistiques.fr#34">
+    <rdf:type rdf:resource="http://www.statistiques.fr#departement"/>
+    <statistiques:pop>1 090 052</statistiques:pop>
+    <statistiques:name>HERAULT</statistiques:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.statistiques.fr#64">
+    <rdf:type rdf:resource="http://www.statistiques.fr#departement"/>
+    <statistiques:pop>662 236</statistiques:pop>
+    <statistiques:name>PYRENEES-ATLANTIQUES</statistiques:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.statistiques.fr#48">
     <rdf:type rdf:resource="http://www.statistiques.fr#departement"/>
     <statistiques:pop>77 085</statistiques:pop>
-    <statistiques:code>48</statistiques:code>
-    <j.0:name>LOZERE</j.0:name>
+    <statistiques:name>LOZERE</statistiques:name>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.statistiques.fr#GARD">
+  <rdf:Description rdf:about="http://www.statistiques.fr#33">
     <rdf:type rdf:resource="http://www.statistiques.fr#departement"/>
-    <statistiques:pop>733 747</statistiques:pop>
-    <statistiques:code>30</statistiques:code>
-    <j.0:name>GARD</j.0:name>
+    <statistiques:pop>1 491 170</statistiques:pop>
+    <statistiques:name>GIRONDE</statistiques:name>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.statistiques.fr#LOIRE-ATLANTIQUE">
+  <rdf:Description rdf:about="http://www.statistiques.fr#44">
     <rdf:type rdf:resource="http://www.statistiques.fr#departement"/>
     <statistiques:pop>1 322 404</statistiques:pop>
-    <statistiques:code>44</statistiques:code>
-    <j.0:name>LOIRE-ATLANTIQUE</j.0:name>
+    <statistiques:name>LOIRE-ATLANTIQUE</statistiques:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.statistiques.fr#72">
+    <rdf:type rdf:resource="http://www.statistiques.fr#departement"/>
+    <statistiques:pop>569 029</statistiques:pop>
+    <statistiques:name>SARTHE</statistiques:name>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.statistiques.fr#PAYS DE LA LOIRE">
-    <statistiques:departements rdf:resource="http://www.statistiques.fr#LOIRE-ATLANTIQUE"/>
-    <statistiques:departements rdf:resource="http://www.statistiques.fr#MAYENNE"/>
-    <statistiques:departements rdf:resource="http://www.statistiques.fr#SARTHE"/>
-    <statistiques:departements rdf:resource="http://www.statistiques.fr#VENDEE"/>
-    <statistiques:departements rdf:resource="http://www.statistiques.fr#MAINE-ET-LOIRE"/>
+    <statistiques:departements rdf:resource="http://www.statistiques.fr#44"/>
+    <statistiques:departements rdf:resource="http://www.statistiques.fr#53"/>
+    <statistiques:departements rdf:resource="http://www.statistiques.fr#72"/>
+    <statistiques:departements rdf:resource="http://www.statistiques.fr#85"/>
+    <statistiques:departements rdf:resource="http://www.statistiques.fr#49"/>
     <rdf:type rdf:resource="http://www.statistiques.fr#region"/>
     <dc:title>PAYS DE LA LOIRE</dc:title>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.statistiques.fr#PYRENEES-ATLANTIQUES">
-    <rdf:type rdf:resource="http://www.statistiques.fr#departement"/>
-    <statistiques:pop>662 236</statistiques:pop>
-    <statistiques:code>64</statistiques:code>
-    <j.0:name>PYRENEES-ATLANTIQUES</j.0:name>
-  </rdf:Description>
   <rdf:Description rdf:about="http://www.statistiques.fr#AQUITAINE">
-    <statistiques:departements rdf:resource="http://www.statistiques.fr#DORDOGNE"/>
-    <statistiques:departements rdf:resource="http://www.statistiques.fr#LANDES"/>
-    <statistiques:departements rdf:resource="http://www.statistiques.fr#PYRENEES-ATLANTIQUES"/>
-    <statistiques:departements rdf:resource="http://www.statistiques.fr#LOT-ET-GARONNE"/>
-    <statistiques:departements rdf:resource="http://www.statistiques.fr#GIRONDE"/>
+    <statistiques:departements rdf:resource="http://www.statistiques.fr#24"/>
+    <statistiques:departements rdf:resource="http://www.statistiques.fr#40"/>
+    <statistiques:departements rdf:resource="http://www.statistiques.fr#64"/>
+    <statistiques:departements rdf:resource="http://www.statistiques.fr#47"/>
+    <statistiques:departements rdf:resource="http://www.statistiques.fr#33"/>
     <rdf:type rdf:resource="http://www.statistiques.fr#region"/>
     <dc:title>AQUITAINE</dc:title>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.statistiques.fr#SARTHE">
+  <rdf:Description rdf:about="http://www.statistiques.fr#30">
     <rdf:type rdf:resource="http://www.statistiques.fr#departement"/>
-    <statistiques:pop>569 029</statistiques:pop>
-    <statistiques:code>72</statistiques:code>
-    <j.0:name>SARTHE</j.0:name>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.statistiques.fr#MAINE-ET-LOIRE">
-    <rdf:type rdf:resource="http://www.statistiques.fr#departement"/>
-    <statistiques:pop>800 424</statistiques:pop>
-    <statistiques:code>49</statistiques:code>
-    <j.0:name>MAINE-ET-LOIRE</j.0:name>
+    <statistiques:pop>733 747</statistiques:pop>
+    <statistiques:name>GARD</statistiques:name>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.statistiques.fr#LANGUEDOC-ROUSSILLON">
-    <statistiques:departements rdf:resource="http://www.statistiques.fr#PYRENEES-ORIENTALES"/>
-    <statistiques:departements rdf:resource="http://www.statistiques.fr#AUDE"/>
-    <statistiques:departements rdf:resource="http://www.statistiques.fr#GARD"/>
-    <statistiques:departements rdf:resource="http://www.statistiques.fr#HERAULT"/>
-    <statistiques:departements rdf:resource="http://www.statistiques.fr#LOZERE"/>
+    <statistiques:departements rdf:resource="http://www.statistiques.fr#66"/>
+    <statistiques:departements rdf:resource="http://www.statistiques.fr#11"/>
+    <statistiques:departements rdf:resource="http://www.statistiques.fr#30"/>
+    <statistiques:departements rdf:resource="http://www.statistiques.fr#34"/>
+    <statistiques:departements rdf:resource="http://www.statistiques.fr#48"/>
     <rdf:type rdf:resource="http://www.statistiques.fr#region"/>
     <dc:title>LANGUEDOC-ROUSSILLON</dc:title>
   </rdf:Description>

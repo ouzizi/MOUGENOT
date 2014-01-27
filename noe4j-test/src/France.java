@@ -63,7 +63,7 @@ public class France {
 		France.createRelationshipTo(pays, RelTypes.EST);
 		
 		Node LanguedocRoussillon = graphdbservice.createNode(); // création la branche de région 91
-		//matrixNodeId = psg.getId();
+		
 		LanguedocRoussillon.setProperty("code", "91");
 		LanguedocRoussillon.setProperty("name", "LANGUEDOC-ROUSSILLON");// attribution du premier id
 		Node lozere = graphdbservice.createNode(); // création d'un autre noeud
@@ -213,7 +213,7 @@ public class France {
 		int nbOfFriends = 0; // compteur de voisins
 		for (Path voisinPath : voisinsTraverser) {
 			
-			output = "Région " + voisinPath.length() + " => "
+			output = "Region " + voisinPath.length() + " => "
 					+voisinPath.endNode().getProperty( "name" ) +
 					System.getProperty("line.separator");
 			System.out.println(output);
@@ -250,8 +250,9 @@ public class France {
 		Resource region = m.createResource(stat+"region");
 		Resource departement = m.createResource(stat+"departement");
 		Property departements = m.createProperty(stat+"departements");
-		Property code = m.createProperty(stat+"code");
+		//Property code = m.createProperty(stat+"code");
 		Property pop = m.createProperty(stat+"pop");
+		Property name = m.createProperty(stat+"name");
 		
 		m.add(r,RDF.type,region);
 		
@@ -261,9 +262,10 @@ public class France {
 		
 		String output = firstNode.getProperty("name") + "  voisins :" +
 		System.getProperty("line.separator");
-		Resource dep = m.createResource(stat+firstNode.getProperty("name"));
-		dep.addProperty(FOAF.name, firstNode.getProperty("name").toString());
-		dep.addProperty(code , firstNode.getProperty("code").toString());
+		Resource dep = m.createResource(stat+firstNode.getProperty("code"));
+		
+		//dep.addProperty(code , firstNode.getProperty("code").toString());
+		dep.addProperty(name, firstNode.getProperty("name").toString());
 		dep.addProperty(pop , firstNode.getProperty("pop").toString());
 		m.add(r,departements,dep);
 		m.add(dep,RDF.type,departement);
@@ -271,13 +273,13 @@ public class France {
 		int nbOfFriends = 0; // compteur de voisins
 		for (Path voisinPath : voisinsTraverser) {	
 		
-		output += "Département " + voisinPath.length() + " => "
+		output += "Departement " + voisinPath.length() + " => "
 		+ voisinPath.endNode().getProperty( "name" ) +
 		System.getProperty("line.separator");
 		
-		Resource departs = m.createResource(stat+voisinPath.endNode().getProperty("name"));
-		departs.addProperty(FOAF.name, voisinPath.endNode().getProperty("name").toString());
-		departs.addProperty(code, voisinPath.endNode().getProperty("code").toString());
+		Resource departs = m.createResource(stat+voisinPath.endNode().getProperty("code"));
+		//departs.addProperty(code, voisinPath.endNode().getProperty("code").toString());
+		departs.addProperty(name, voisinPath.endNode().getProperty("name").toString());
 		departs.addProperty(pop, voisinPath.endNode().getProperty("pop").toString());
 		m.add(departs,RDF.type,departement);
 		m.add(r,departements,departs);
@@ -324,4 +326,6 @@ public static void main(String[] args) {
 
 ////////////////////////////////////	
 	
+
+
 

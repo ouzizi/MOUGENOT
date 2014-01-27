@@ -39,10 +39,10 @@ public class testFrance {
 		      String prolog2 = "PREFIX rdf: <"+RDF.getURI()+">" ;
 			  String prolog3 = "PREFIX stat: <"+statistiques_ns+">" ;
 			  
-			  String sparqlQueryString  =prolog1 + NL + prolog2 + NL + prolog3 + NL + " SELECT  ?c ?code "
+			  String sparqlQueryString  =prolog1 + NL + prolog2 + NL + prolog3 + NL + " SELECT  ?c ?name "
 	      	+ "WHERE { " +
 	      	"?dep stat:pop ?c." +
-	      	"?dep stat:code ?code." +
+	      	"?dep stat:name ?name." +
 	      	
 	      
 	      	
